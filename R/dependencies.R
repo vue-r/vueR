@@ -12,10 +12,18 @@
 #' library(htmltools)
 #'
 #' attachDependencies(
-#'   tags$script(
-#'   "
-#'
-#'   "
+#'   tagList(
+#'     tags$div(id="app","{{message}}"),
+#'     tags$script(
+#'     "
+#'     var app = new Vue({
+#'       el: '#app',
+#'       data: {
+#'         message: 'Hello Vue!'
+#'       }
+#'     });
+#'     "
+#'     )
 #'   ),
 #'   html_dependency_vue()
 #' )
