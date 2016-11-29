@@ -4,6 +4,13 @@
 #' \code{vue} is a little different from other 'htmlwidgets' though
 #' since it requires specification of the HTML tags/elements separately.
 #'
+#' @param app \code{list} with \code{el} and \code{data} and other pieces
+#'          of a 'Vue.js' app
+#' @param width,height any valid \code{CSS} size unit, but in reality
+#'          this will not currently have any impact
+#' @param elementId \code{character} id of the htmlwidget container
+#'          element
+#'
 #' @import htmlwidgets
 #'
 #' @export

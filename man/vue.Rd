@@ -6,6 +6,16 @@
 \usage{
 vue(app = list(), width = NULL, height = NULL, elementId = NULL)
 }
+\arguments{
+\item{app}{\code{list} with \code{el} and \code{data} and other pieces
+of a 'Vue.js' app}
+
+\item{width, height}{any valid \code{CSS} size unit, but in reality
+this will not currently have any impact}
+
+\item{elementId}{\code{character} id of the htmlwidget container
+element}
+}
 \value{
 vue htmlwidget
 }
