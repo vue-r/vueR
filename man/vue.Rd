@@ -56,5 +56,31 @@ browsable(
   )
 )
 }
+
+# app3 from Vue.js introduction
+#  with a setInterval to toggle seen true and false
+browsable(
+  tagList(
+    tags$div(id="app-3",
+      tags$p("v-if"="seen", "Now you see me")
+    ),
+    htmlwidgets::onRender(
+      vue(
+        list(
+          el = '#app-3',
+          data = list(
+            seen = TRUE
+          )
+        )
+      ),
+      "
+function(el,x){
+  var that = this;
+  setInterval(function(){that.instance.seen=!that.instance.seen},1000);
+}
+      "
+    )
+  )
+)
 }
 
