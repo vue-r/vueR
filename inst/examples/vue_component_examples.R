@@ -43,7 +43,103 @@ element <- htmlDependency(
   stylesheet = "theme-default/index.css"
 )
 
+vuei18n <- htmlDependency(
+  name = "vue-i18n",
+  version = "4.7.4",
+  src = c(href="https://unpkg.com/vue-i18n/dist"),
+  script = "vue-i18n.min.js"
+)
+
 tl <- tagList(
+  tags$script("
+ELEMENT.locale(
+{
+  el: {
+  datepicker: {
+  now: 'Now',
+  today: 'Today',
+  cancel: 'Cancel',
+  clear: 'Clear',
+  confirm: 'OK',
+  selectDate: 'Select date',
+  selectTime: 'Select time',
+  startDate: 'Start Date',
+  startTime: 'Start Time',
+  endDate: 'End Date',
+  endTime: 'End Time',
+  year: '',
+  month1: 'January',
+  month2: 'February',
+  month3: 'March',
+  month4: 'April',
+  month5: 'May',
+  month6: 'June',
+  month7: 'July',
+  month8: 'August',
+  month9: 'September',
+  month10: 'October',
+  month11: 'November',
+  month12: 'December',
+  // week: 'week',
+  weeks: {
+  sun: 'Sun',
+  mon: 'Mon',
+  tue: 'Tue',
+  wed: 'Wed',
+  thu: 'Thu',
+  fri: 'Fri',
+  sat: 'Sat'
+  },
+  months: {
+  jan: 'Jan',
+  feb: 'Feb',
+  mar: 'Mar',
+  apr: 'Apr',
+  may: 'May',
+  jun: 'Jun',
+  jul: 'Jul',
+  aug: 'Aug',
+  sep: 'Sep',
+  oct: 'Oct',
+  nov: 'Nov',
+  dec: 'Dec'
+  }
+  },
+  select: {
+  loading: 'Loading',
+  noMatch: 'No matching data',
+  noData: 'No data',
+  placeholder: 'Select'
+  },
+  pagination: {
+  goto: 'Go to',
+  pagesize: '/page',
+  total: 'Total {total}',
+  pageClassifier: ''
+  },
+  messagebox: {
+  title: 'Message',
+  confirm: 'OK',
+  cancel: 'Cancel',
+  error: 'Illegal input'
+  },
+  upload: {
+  delete: 'Delete',
+  preview: 'Preview',
+  continue: 'Continue'
+  },
+  table: {
+  emptyText: 'No Data',
+  confirmFilter: 'Confirm',
+  resetFilter: 'Reset',
+  clearFilter: 'All'
+  },
+  tree: {
+  emptyText: 'No Data'
+  }
+  }
+  })
+  "),
   tags$div(
     id="app",
     tags$span("Slider With Breakpoints Displayed"),
@@ -84,6 +180,8 @@ tl <- tagList(
 browsable(
   attachDependencies(
     tl,
-    element
+    list(
+      element
+    )
   )
 )
