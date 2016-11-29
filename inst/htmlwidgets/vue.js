@@ -6,11 +6,9 @@ HTMLWidgets.widget({
 
   factory: function(el, width, height) {
 
-    var instance;
+    var instance = {};
 
     return {
-
-      instance: instance,
 
       renderValue: function(x) {
         // if x.el is specified then use it and
@@ -25,7 +23,7 @@ HTMLWidgets.widget({
           x.el = "#" + el.id;
         }
 
-        instance = new Vue(x);
+        this.instance = new Vue(x);
 
       },
 
@@ -34,7 +32,9 @@ HTMLWidgets.widget({
         // for now ignore resize hopefully without
         //   much consequence
 
-      }
+      },
+
+      instance: instance
 
     };
   }
