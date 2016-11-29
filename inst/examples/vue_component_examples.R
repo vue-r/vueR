@@ -59,7 +59,7 @@ tl <- tagList(
     tag(
       "el-time-select",
       list(
-        "v-model"="value1",
+        "v-model"="value_time",
         ":picker-options"="{
           start: '08:30',
           step: '00:15',
@@ -67,9 +67,18 @@ tl <- tagList(
         }",
         "placeholder"="Select time"
       )
+    ),
+    tags$span("Date Picker"),
+    tag(
+      "el-date-picker",
+      list(
+        "v-model"="value_date",
+        type="date",
+        placeholder="Pick a day"
+      )
     )
   ),
-  vue(list(el="#app",data=list(value5=0, value1=NULL)))
+  vue(list(el="#app",data=list(value5=0, value_time=NULL, value_date=NULL)))
 )
 
 browsable(
