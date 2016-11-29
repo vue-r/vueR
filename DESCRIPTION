@@ -1,6 +1,6 @@
 Package: vueR
 Type: Package
-Title: 'Vuejs' Helpers
+Title: 'Vuejs' Helpers and 'Htmlwidget'
 Version: 0.1.0
 Date: 2016-11-28
 Authors@R: c(
