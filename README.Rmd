@@ -29,7 +29,7 @@ devtools::install_github("timelyportfolio/vueR")
 
 ### Example
 
-We'll start with a recreation of the simple "Hello World" example from the Vue.js documentation.
+We'll start with a recreation of the simple "Hello World" example from the Vue.js documentation.  This is the hard way.
 
 ```{r eval=FALSE}
 library(htmltools)
@@ -55,6 +55,27 @@ browsable(
 )
 ```
 
+`vueR` gives us an `htmlwidget` that can ease the code burden from above.
+
+```{r eval=FALSE}
+library(vueR)
+library(htmltools)
+
+# recreate Hello Vue! example
+browsable(
+  tagList(
+    tags$div(id="app", "{{message}}"),
+    vue(
+      list(
+        el = "#app",
+        data = list(
+          message = "Hello Vue!"
+        )
+      )
+    )
+  )
+)
+```
 
 ### Code of Conduct
 

@@ -14,30 +14,54 @@
 
 ### Example
 
-We'll start with a recreation of the simple "Hello World" example from the Vue.js documentation.
+We'll start with a recreation of the simple "Hello World" example from the Vue.js documentation. This is the hard way.
 
 ``` r
 library(htmltools)
 library(vueR)
 
-attachDependencies(
+browsable(
+  attachDependencies(
+    tagList(
+      tags$div(id="app","{{message}}"),
+      tags$script(
+      "
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue!'
+        }
+      });
+      "
+      )
+    ),
+    html_dependency_vue()
+  )
+)
+```
+
+`vueR` gives us an `htmlwidget` that can ease the code burden from above.
+
+``` r
+library(vueR)
+library(htmltools)
+
+# recreate Hello Vue! example
+browsable(
   tagList(
-    tags$div(id="app","{{message}}"),
-    tags$script(
-    "
-    var app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello Vue!'
-      }
-    });
-    "
+    tags$div(id="app", "{{message}}"),
+    vue(
+      list(
+        el = "#app",
+        data = list(
+          message = "Hello Vue!"
+        )
+      )
     )
-  ),
-  html_dependency_vue()
+  )
 )
 ```
 
 ### Code of Conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+I would love for you to participate and help with `vueR`, but please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
