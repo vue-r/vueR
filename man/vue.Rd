@@ -55,7 +55,6 @@ browsable(
     )
   )
 )
-}
 
 # app3 from Vue.js introduction
 #  with a setInterval to toggle seen true and false
@@ -82,5 +81,6 @@ function(el,x){
     )
   )
 )
+}
 }
 
