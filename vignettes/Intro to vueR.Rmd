@@ -1,0 +1,13 @@
+---
+title: "Intro to vueR"
+author: "Kenton Russell"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Intro to vueR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+All the awesomeness of [Vue.js](https://vuejs.org) is available in `R` with `vueR`.  We will work through some of the examples to give you a feel for both `Vue.js` and how to incorporate this powerful binding framework in your `R` workflows.
+
