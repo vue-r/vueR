@@ -43,13 +43,6 @@ element <- htmlDependency(
   stylesheet = "theme-default/index.css"
 )
 
-vuei18n <- htmlDependency(
-  name = "vue-i18n",
-  version = "4.7.4",
-  src = c(href="https://unpkg.com/vue-i18n/dist"),
-  script = "vue-i18n.min.js"
-)
-
 tl <- tagList(
   tags$script("
 ELEMENT.locale(
@@ -180,6 +173,46 @@ ELEMENT.locale(
 browsable(
   attachDependencies(
     tl,
+    list(
+      element
+    )
+  )
+)
+
+rhd <- treemap::random.hierarchical.data()
+tl_tree <- tagList(
+  tags$div(
+    id = "app",
+    tag(
+      "el-tree",
+      list(
+        ":data" = "data",
+        ":props" = "defaultProps",
+        "@node-click" = "handleNodeClick"
+      )
+    )
+  ),
+  vue(
+    list(
+      el="#app",
+      data = list(
+        data = d3r::d3_nest(
+          rhd,
+          value_cols="x"
+        ),
+        defaultProps = list(
+          'children' = 'children',
+          'label' = 'id'
+        )
+      ),
+      methods = list( handleNodeClick = htmlwidgets::JS("function(data){console.log(data)}" ) )
+    )
+  )
+)
+
+browsable(
+  attachDependencies(
+    tl_tree,
     list(
       element
     )
