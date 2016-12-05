@@ -4,7 +4,8 @@
 \alias{vue}
 \title{'Vue.js' 'htmlwidget'}
 \usage{
-vue(app = list(), width = NULL, height = NULL, elementId = NULL)
+vue(app = list(), width = NULL, height = NULL, elementId = NULL,
+  minified = TRUE)
 }
 \arguments{
 \item{app}{\code{list} with \code{el} and \code{data} and other pieces
@@ -15,6 +16,9 @@ this will not currently have any impact}
 
 \item{elementId}{\code{character} id of the htmlwidget container
 element}
+
+\item{minified}{\code{logical} to indicate minified (\code{minified=TRUE}) or
+non-minified (\code{minified=FALSE}) Vue.js}
 }
 \value{
 vue htmlwidget

@@ -10,6 +10,8 @@
 #'          this will not currently have any impact
 #' @param elementId \code{character} id of the htmlwidget container
 #'          element
+#' @param minified \code{logical} to indicate minified (\code{minified=TRUE}) or
+#'          non-minified (\code{minified=FALSE}) Vue.js
 #'
 #' @import htmlwidgets
 #'
@@ -17,7 +19,11 @@
 #' @example ./inst/examples/vue_widget_examples.R
 #' @return vue htmlwidget
 
-vue <- function(app = list(), width = NULL, height = NULL, elementId = NULL) {
+vue <- function(
+  app = list(),
+  width = NULL, height = NULL, elementId = NULL,
+  minified = TRUE
+) {
 
   # forward options using x
   x = app
@@ -33,7 +39,7 @@ vue <- function(app = list(), width = NULL, height = NULL, elementId = NULL) {
   )
 
   hw$dependencies <- list(
-    html_dependency_vue(offline=TRUE)
+    html_dependency_vue(offline=TRUE, minified=minified)
   )
 
   hw

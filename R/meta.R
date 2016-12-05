@@ -1,2 +1,2 @@
 #'@keywords internal
-vue_version <- function(){'2.1.3'}
+vue_version <- function(){'2.1.4'}

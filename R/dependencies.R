@@ -2,6 +2,8 @@
 #'
 #' @param offline \code{logical} to use local file dependencies.  If \code{FALSE},
 #'          then the dependencies use cdn as its \code{src}.
+#' @param minified \code{logical} to use minified (production) version.  Use
+#'          \code{minified = FALSE} for debugging or working with Vue devtools.
 #'
 #' @return \code{\link[htmltools]{htmlDependency}}
 #' @importFrom htmltools htmlDependency
@@ -27,17 +29,21 @@
 #'   ),
 #'   html_dependency_vue()
 #' )
-html_dependency_vue <- function(offline=TRUE){
+html_dependency_vue <- function(offline=TRUE, minified=TRUE){
   hd <- htmltools::htmlDependency(
     name = "vue",
     version = vue_version(),
     src = system.file("www/vue/dist",package="vueR"),
-    script = c("vue.min.js")
+    script = "vue.min.js"
   )
+
+  if(!minified) {
+    hd$script <- "vue.js"
+  }
 
   if(!offline) {
     hd$src <- list(href=sprintf(
-      "//cdnjs.cloudflare.com/ajax/libs/vue/%s",
+      "//unpkg.com/vue/dist",
       vue_version()
     ))
   }

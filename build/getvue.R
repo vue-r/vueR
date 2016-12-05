@@ -19,6 +19,14 @@ download.file(
   destfile="./inst/www/vue/dist/vue.min.js"
 )
 
+download.file(
+  url=sprintf(
+    "https://unpkg.com/vue@%s/dist/vue.js",
+    get_vue_latest()
+  ),
+  destfile="./inst/www/vue/dist/vue.js"
+)
+
 # write function with newest version
 #  for use when creating dependencies
 cat(

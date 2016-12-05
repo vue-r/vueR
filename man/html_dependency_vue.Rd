@@ -4,11 +4,14 @@
 \alias{html_dependency_vue}
 \title{Dependencies for Vue}
 \usage{
-html_dependency_vue(offline = TRUE)
+html_dependency_vue(offline = TRUE, minified = TRUE)
 }
 \arguments{
 \item{offline}{\code{logical} to use local file dependencies.  If \code{FALSE},
 then the dependencies use cdn as its \code{src}.}
+
+\item{minified}{\code{logical} to use minified (production) version.  Use
+\code{minified = FALSE} for debugging or working with Vue devtools.}
 }
 \value{
 \code{\link[htmltools]{htmlDependency}}

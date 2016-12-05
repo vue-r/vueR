@@ -187,13 +187,13 @@ tl_tree <- tagList(
       "el-tree",
       list(
         "ref" = "mytree",
-        ":data" = "data",
+        ":data" = "data.children",
         ":props" = "defaultProps",
         "show-checkbox" = NA,
         "@check-change" = "handleCheckChange"
       )
     ),
-    tags$pre("{{checkedNodes.map(function(d){return d.name}) | json}}")
+    tags$pre("{{checkedNodes.map(function(d){return d.name})}}")
   ),
   vue(
     list(
@@ -201,7 +201,8 @@ tl_tree <- tagList(
       data = list(
         data = d3r::d3_nest(
           rhd,
-          value_cols="x"
+          value_cols="x",
+
         ),
         defaultProps = list(
           'children' = 'children',
@@ -221,7 +222,8 @@ function(data, checked, indeterminate){
           "
         )
       )
-    )
+    ),
+    minified = FALSE
   )
 )
 
