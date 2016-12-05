@@ -193,7 +193,7 @@ tl_tree <- tagList(
         "@check-change" = "handleCheckChange"
       )
     ),
-    tags$pre("{{checkedNodes.map(d=>d.name) | json}}")
+    tags$pre("{{checkedNodes.map(function(d){return d.name}) | json}}")
   ),
   vue(
     list(
