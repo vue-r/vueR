@@ -186,6 +186,7 @@ tl_tree <- tagList(
     tag(
       "el-tree",
       list(
+        "ref" = "mytree",
         ":data" = "data",
         ":props" = "defaultProps",
         "show-checkbox" = NA,
