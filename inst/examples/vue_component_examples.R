@@ -192,7 +192,8 @@ tl_tree <- tagList(
         "show-checkbox" = NA,
         "@check-change" = "handleCheckChange"
       )
-    )
+    ),
+    tags$pre("{{checkedNodes.map(d=>d.name) | json}}")
   ),
   vue(
     list(
@@ -205,7 +206,8 @@ tl_tree <- tagList(
         defaultProps = list(
           'children' = 'children',
           'label' = 'name'
-        )
+        ),
+        checkedNodes = list()
       ),
       methods = list(
         handleCheckChange = htmlwidgets::JS(
@@ -214,6 +216,7 @@ function(data, checked, indeterminate){
   //debugger;
   //data.checked = checked && !indeterminate;
   console.log(data, checked, indeterminate);
+  this.checkedNodes = this.$refs.mytree.getCheckedNodes();
 }
           "
         )
