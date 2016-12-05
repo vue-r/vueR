@@ -188,7 +188,8 @@ tl_tree <- tagList(
       list(
         ":data" = "data",
         ":props" = "defaultProps",
-        "@node-click" = "handleNodeClick"
+        "show-checkbox" = NA,
+        "@check-change" = "handleCheckChange"
       )
     )
   ),
@@ -205,7 +206,17 @@ tl_tree <- tagList(
           'label' = 'name'
         )
       ),
-      methods = list( handleNodeClick = htmlwidgets::JS("function(data){console.log(data)}" ) )
+      methods = list(
+        handleCheckChange = htmlwidgets::JS(
+          "
+function(data, checked, indeterminate){
+  //debugger;
+  //data.checked = checked && !indeterminate;
+  console.log(data, checked, indeterminate);
+}
+          "
+        )
+      )
     )
   )
 )
