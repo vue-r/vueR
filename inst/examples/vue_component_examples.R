@@ -202,7 +202,7 @@ tl_tree <- tagList(
         ),
         defaultProps = list(
           'children' = 'children',
-          'label' = 'id'
+          'label' = 'name'
         )
       ),
       methods = list( handleNodeClick = htmlwidgets::JS("function(data){console.log(data)}" ) )
