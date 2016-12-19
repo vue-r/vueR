@@ -201,8 +201,7 @@ tl_tree <- tagList(
       data = list(
         data = d3r::d3_nest(
           rhd,
-          value_cols="x",
-
+          value_cols="x"
         ),
         defaultProps = list(
           'children' = 'children',
@@ -218,6 +217,7 @@ function(data, checked, indeterminate){
   //data.checked = checked && !indeterminate;
   console.log(data, checked, indeterminate);
   this.checkedNodes = this.$refs.mytree.getCheckedNodes();
+  this.$emit('tree-checked');
 }
           "
         )
@@ -230,6 +230,55 @@ function(data, checked, indeterminate){
 browsable(
   attachDependencies(
     tl_tree,
+    list(
+      element
+    )
+  )
+)
+
+
+# add a d3 tree and make it respond to Vue tree
+d3t <- networkD3::diagonalNetwork(
+  jsonlite::fromJSON(
+    d3r::d3_nest(
+      rhd,
+      value_cols="x"
+    ),
+    simplifyVector=FALSE,
+    simplifyDataFrame=FALSE
+  )
+)
+# use onRender to add event handling
+d3t <- htmlwidgets::onRender(
+  d3t,
+"
+function(el, x) {
+  var vue_tree = HTMLWidgets.find('.vue').instance;
+  vue_tree.$on(
+    'tree-checked',
+    function() {
+      var myvue = this;
+      var checkedNodes = myvue.checkedNodes.map(function(d){return d.name});
+      var nodes = d3.select(el).selectAll('g.node');
+      debugger;
+      nodes.each(function(d) {
+        if(checkedNodes.indexOf(d.name) >= 0){
+          d3.select(this).select('circle').style('fill', 'gray');
+        } else {
+          d3.select(this).select('circle').style('fill', 'rgb(255,255,255)');
+        };
+      })
+    }
+  )
+}
+"
+)
+browsable(
+  attachDependencies(
+    tagList(
+      tags$div(tl_tree,style="width:20%; float:left; display:block;"),
+      tags$div(d3t,style="width:70%; float:left; display:block;")
+    ),
     list(
       element
     )
