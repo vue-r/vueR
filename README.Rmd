@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 
 [![Travis-CI Build Status](https://travis-ci.org/timelyportfolio/vuer.svg?branch=master)](https://travis-ci.org/timelyportfolio/vueR)[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/vueR)](https://cran.r-project.org/package=vueR)
 
-[Vue.js](https://vuejs.org) is a quiet, very popular JavaScript framework with an impressive set of features, a solid community, and MIT license.  Don't tell anybody, but I think I might even like it better than React.  With all this, Vue deserves its own set of helpers for `R`, just like [`d3r`](https://github.com/d3r) and [`reactR`](https://github.com/reactR).  
+[Vue.js](https://vuejs.org) is a quiet, very popular JavaScript framework with an impressive set of features, a solid community, and MIT license.  Don't tell anybody, but I think I might even like it better than React.  With all this, Vue deserves its own set of helpers for `R`, just like [`d3r`](https://github.com/timelyportfolio/d3r) and [`reactR`](https://github.com/timelyportfolio/reactR).
 
 `vueR` provides these helpers with its dependency function `html_dependency_vue` and ?htmlwidget?.
 
