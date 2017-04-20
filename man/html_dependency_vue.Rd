@@ -40,4 +40,3 @@ attachDependencies(
   html_dependency_vue()
 )
 }
-
