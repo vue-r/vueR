@@ -27,7 +27,7 @@ template <- tag(
                 "v-bind:width" = "node.x1 - node.x0",
                 "v-bind:y" =  "node.y0",
                 "v-bind:height" = "node.y1 - node.y0",
-                "v-bind:style" = "{fill: color(node.parent.data.name)}"
+                "v-bind:style" = "{fill: node.data.color ? node.data.color : color(node.parent.data.name)}"
               )
             )
           )
@@ -39,7 +39,6 @@ template <- tag(
 
 component <- tags$script(
 "
-//create greetings component based on the greetings template
 Vue.component('treemap-component', {
   template: '#d3treemap',
   props: {
