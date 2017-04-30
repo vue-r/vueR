@@ -4,8 +4,8 @@ library(d3r)
 
 d2b_dep <- htmltools::htmlDependency(
   name = "d2b",
-  version = "0.0.23",
-  src = c(href = "https://unpkg.com/d2b@0.0.23/build/"),
+  version = "0.0.24",
+  src = c(href = "https://unpkg.com/d2b@0.0.24/build/"),
   script = "d2b.min.js"
 )
 
