@@ -1,0 +1,101 @@
+```{r}
+library(treemap)
+library(vueR)
+library(d3r)
+library(htmltools)
+
+rhd <- random.hierarchical.data()
+
+rhd_json <- d3_nest(rhd, value_cols="x")
+```
+
+<template id="d3treemap">
+  <svg v-bind:style="styleObject">
+    <g>
+      <rect v-for="(node, index) in nodes" v-if="node.depth === 2" v-bind:x="node.x0" v-bind:width="node.x1 - node.x0" v-bind:y="node.y0" v-bind:height="node.y1 - node.y0" v-bind:style="{fill: color(node.parent.data.name)}"></rect>
+    </g>
+  </svg>
+</template>
+<script>
+//create greetings component based on the greetings template
+Vue.component('treemap-component', {
+  template: '#d3treemap',
+  props: {
+    tree: Object,
+    sizefield: {
+      type: String,
+      default: 'size'
+    },
+    treewidth: {
+      type: Number,
+      default: 400
+    },
+    treeheight: {
+      type: Number,
+      default: 400
+    },
+    tile: {
+      type: Function,
+      default: d3.treemapSquarify
+    },
+    color: {
+      type: Function,
+        default: d3.scaleOrdinal(d3.schemeCategory10)
+    }
+  },
+  computed: {
+    styleObject: function() {
+      return {width: this.treewidth, height: this.treeheight}
+    },
+    treemap: function() { return this.calculate_tree() },
+    nodes: function() {
+      var color = this.color;
+      var nodes = [];
+      this.treemap.each(function(d) {
+        nodes.push(d);
+      });
+      return nodes;
+    }
+  },
+  methods: {
+    calculate_tree: function() {
+      var sizefield = this.sizefield;
+      var d3t = d3.hierarchy(this.tree)
+        .sum(function(d) {
+          return d[sizefield]
+        });
+      return d3.treemap()
+        .size([this.treewidth, this.treeheight])
+        .tile(this.tile)
+        .round(true)
+        .padding(1)(d3t)
+    }
+  }
+});
+</script>
+
+
+```{r}
+tagList(
+  tags$div(
+    id="app",
+    tag(
+      "treemap-component",
+      list(":tree" = "tree",":sizefield"="'x'") #use defaults
+    )
+  ),
+  vue(
+    list(
+      el = "#app",
+      data = list(
+        tree = rhd_json,
+        size = 'x',
+        width = 800,
+        height = 600,
+        tile = htmlwidgets::JS("d3.treemapSliceDice")
+      )
+    )
+  ),
+  d3_dep_v4()
+)
+```
