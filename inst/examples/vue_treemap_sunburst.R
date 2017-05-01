@@ -1,4 +1,3 @@
-library(shiny)
 library(treemap)
 library(d3r)
 library(htmltools)
@@ -6,8 +5,8 @@ library(htmltools)
 # set up dependency for d2bjs chart library
 d2b_dep <- htmltools::htmlDependency(
   name = "d2b",
-  version = "0.0.24",
-  src = c(href = "https://unpkg.com/d2b@0.0.24/build/"),
+  version = "0.0.28",
+  src = c(href = "https://unpkg.com/d2b@0.0.28/build/"),
   script = "d2b.min.js"
 )
 
@@ -103,46 +102,56 @@ Vue.component('treemap-component', {
 
 
 
-app <- tags$script(HTML("
+app <- tags$script(HTML(
+sprintf(
+"
+// try to keep color consistent across charts
+//  so use global color function
+var color = d3.scaleOrdinal(d3.schemeCategory20);
+
 // careful here in a real application
 //  set up a global/window store object to hold state
 //  will be a simple object
+var tree = %s;
 var store = {
-  tree: {},
+  tree: tree,
+  filtered_tree: tree,
   size: 'x',
   width: 800,
   height: 600,
   tile: d3.treemapBinary,
+  color: color,
   sunburstChartConfig: function(chart) {
     chart.label(function(d){return d.name});
+    chart.color(function(d){return color(d.name);})
     chart.sunburst().size(function(d){return d.x});
   }
 };
 
-// add a very simple function that will update our store object
-//   with the x data provided
-Shiny.addCustomMessageHandler(
-  'updateStore',
-  function(x) {
-    // mutate store data to equal the x argument
-    store[x.field] = x.data;
-    console.log('changed to ' + x);
+var app = new Vue({
+  el: '#app',
+  components: {
+    'sunburst-chart': d2b.vueChartSunburst
+  },
+  data: store,
+  methods: {
+    sunburstChartRendered: function (el, chart) {
+      var that = this;
+      d3.select(el).selectAll('.d2b-sunburst-chart')
+        .on('mouseover', function (d) {
+          if(d3.event.target.classList[0] === 'd2b-sunburst-arc'){
+            that.filtered_tree = d3.select(d3.event.target).datum().data;
+          }
+        });
+    }
   }
-);
-
-$(document).on(
-  'shiny:connected',
-  function() {
-    var app = new Vue({
-    el: '#app',
-    components: {
-      'sunburst-chart': d2b.vueChartSunburst
-    },
-      data: store
-    })
-  }
+})
+",
+d3r::d3_nest(
+  treemap::random.hierarchical.data(depth=4),
+  value_cols = "x"
 )
-"
+  )
 ))
 
 
@@ -155,14 +164,18 @@ ui <- tagList(
       style = "height:400px; width:400px; float:left;",
       tag(
         "sunburst-chart",
-        list(":data" = "tree", ":config" = "sunburstChartConfig")
+        list(
+          ":data" = "tree",
+          ":config" = "sunburstChartConfig",
+          "@rendered" = "sunburstChartRendered"
+        )
       )
     ),
     tags$div(
       style = "height:400px; width:400px; float:left;",
       tag(
         "treemap-component",
-        list(":tree" = "tree",":sizefield"="'x'") #use defaults
+        list(":tree" = "filtered_tree",":sizefield"="'x'",":color" = "color") #use defaults
       )
     )
   ),
@@ -172,22 +185,4 @@ ui <- tagList(
   d2b_dep
 )
 
-server <- function(input, output, session) {
-  observe({
-    # every 1 second invalidate our session to trigger update
-    invalidateLater(1000, session)
-    # send a message to update store with a random value
-    session$sendCustomMessage(
-      type = "updateStore",
-      message = list(
-        field = "tree",
-        data = d3r::d3_nest(
-          treemap::random.hierarchical.data(),
-          value_cols = "x"
-        )
-      )
-    )
-  })
-}
-
-shinyApp(ui, server)
+browsable(ui)
