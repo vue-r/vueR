@@ -22,7 +22,7 @@ template <- tag(
               "rect",
               list(
                 "v-for" = "(node, index) in nodes",
-                "v-if" = "node.depth === 2",
+                "v-if" = "node.depth === depth",
                 "v-bind:x" = "node.x0",
                 "v-bind:width" = "node.x1 - node.x0",
                 "v-bind:y" =  "node.y0",
@@ -60,6 +60,10 @@ Vue.component('treemap-component', {
       type: Function,
       default: d3.treemapSquarify
     },
+    depth: {
+      type: Number,
+      default: 2
+    },
     color: {
       type: Function,
         default: d3.scaleOrdinal(d3.schemeCategory10)
@@ -93,7 +97,7 @@ Vue.component('treemap-component', {
         .padding(1)(d3t)
     },
     onNodeClick: function(node) {
-      this.$emit('NODE_CLICK', node)
+      this.$emit('node_click', node, this)
     }
   }
 });
@@ -111,11 +115,13 @@ var app = new Vue({
     size: 'x',
     width: 800,
     height: 600,
-    tile: d3.treemapSliceDice
+    tile: d3.treemapSliceDice,
+    depth: 1,
+    color: d3.scaleOrdinal(d3.schemeCategory20c)
   },
   methods: {
-    node_clicked: function(node) {
-      console.log(node);
+    node_clicked: function(node, component) {
+      console.log(node, component);
     }
   }
 })
@@ -124,6 +130,7 @@ rhd_json
 )
 ))
 
+# one treemap example
 browsable(
   tagList(
     template,
@@ -132,7 +139,7 @@ browsable(
       id="app",
       tag(
         "treemap-component",
-        list(":tree" = "tree",":sizefield"="'x'","v-on:NODE_CLICK"="node_clicked") #use defaults
+        list(":tree" = "tree",":sizefield"="'x'","v-on:node_click"="node_clicked") #use defaults
       )
     ),
     app,
@@ -158,13 +165,23 @@ browsable(
       ),
       tag(
         "treemap-component",
-        list(":tree" = "tree",":sizefield"="size",":treeheight"="height",":treewidth"="width")
+        list(
+          ":tree" = "tree",":sizefield"="size",
+          ":treeheight"="height",":treewidth"="width",
+          ":depth"="depth", ":color"="color"
+        )
       ),
       tag(
         "treemap-component",
-        list(":tree" = "tree",":sizefield"="size",":tile"="tile","v-on:NODE_CLICK"="node_clicked")
+        list(":tree" = "tree",":sizefield"="size",":tile"="tile","v-on:node_click"="node_clicked")
       )
     ),
+    tags$script("
+      setInterval(
+        function(){app.$data.depth = app.$data.depth === 3 ? 1 : app.$data.depth + 1},
+        2000
+      )
+    "),
     app,
     html_dependency_vue(offline=FALSE,minified=FALSE),
     d3_dep_v4(offline=FALSE)
