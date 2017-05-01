@@ -27,7 +27,8 @@ template <- tag(
                 "v-bind:width" = "node.x1 - node.x0",
                 "v-bind:y" =  "node.y0",
                 "v-bind:height" = "node.y1 - node.y0",
-                "v-bind:style" = "{fill: node.data.color ? node.data.color : color(node.parent.data.name)}"
+                "v-bind:style" = "{fill: node.data.color ? node.data.color : color(node.parent.data.name)}",
+                "v-on:click" = "onNodeClick(node)"
               )
             )
           )
@@ -90,6 +91,9 @@ Vue.component('treemap-component', {
         .tile(this.tile)
         .round(true)
         .padding(1)(d3t)
+    },
+    onNodeClick: function(node) {
+      this.$emit('NODE_CLICK', node)
     }
   }
 });
@@ -108,6 +112,11 @@ var app = new Vue({
     width: 800,
     height: 600,
     tile: d3.treemapSliceDice
+  },
+  methods: {
+    node_clicked: function(node) {
+      console.log(node);
+    }
   }
 })
 ",
@@ -123,7 +132,7 @@ browsable(
       id="app",
       tag(
         "treemap-component",
-        list(":tree" = "tree",":sizefield"="'x'") #use defaults
+        list(":tree" = "tree",":sizefield"="'x'","v-on:NODE_CLICK"="node_clicked") #use defaults
       )
     ),
     app,
@@ -153,7 +162,7 @@ browsable(
       ),
       tag(
         "treemap-component",
-        list(":tree" = "tree",":sizefield"="size",":tile"="tile")
+        list(":tree" = "tree",":sizefield"="size",":tile"="tile","v-on:NODE_CLICK"="node_clicked")
       )
     ),
     app,
@@ -186,6 +195,9 @@ create_tree: function() {
             },
             style: {
               fill: color(d.parent.data.name)
+            },
+            domProps: {
+              __data__: d
             }
           }
         )]
