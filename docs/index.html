@@ -9,7 +9,7 @@
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><!-- mathjax --><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
+<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
@@ -33,6 +33,9 @@
 </li>
 <li>
   <a href="articles/index.html">Articles</a>
+</li>
+<li>
+  <a href="news/index.html">News</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -78,8 +81,8 @@
 <span class="kw">browsable</span>(
   <span class="kw">attachDependencies</span>(
     <span class="kw">tagList</span>(
-      tags$<span class="kw">div</span>(<span class="dt">id=</span><span class="st">"app"</span>,<span class="st">"{{message}}"</span>),
-      tags$<span class="kw">script</span>(
+      tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">id=</span><span class="st">"app"</span>,<span class="st">"{{message}}"</span>),
+      tags<span class="op">$</span><span class="kw">script</span>(
       <span class="st">"</span>
 <span class="st">      var app = new Vue({</span>
 <span class="st">        el: '#app',</span>
@@ -100,7 +103,7 @@
 <span class="co"># recreate Hello Vue! example</span>
 <span class="kw">browsable</span>(
   <span class="kw">tagList</span>(
-    tags$<span class="kw">div</span>(<span class="dt">id=</span><span class="st">"app"</span>, <span class="st">"{{message}}"</span>),
+    tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">id=</span><span class="st">"app"</span>, <span class="st">"{{message}}"</span>),
     <span class="kw"><a href="reference/vue.html">vue</a></span>(
       <span class="kw">list</span>(
         <span class="dt">el =</span> <span class="st">"#app"</span>,
@@ -121,7 +124,8 @@
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Links</h2>
+    <h2 class="hasAnchor">
+<a href="#sidebar" class="anchor"></a>Links</h2>
 <ul class="list-unstyled">
 <li>Browse source code at <br><a href="https://github.com/timelyportfolio/vueR">https://​github.com/​timelyportfolio/​vueR</a>
 </li>
@@ -129,7 +133,7 @@
 </li>
 </ul>
 <h2>License</h2>
-<p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE">LICENSE</a></p>
+<p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE.html">LICENSE</a></p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>Evan You <br><small class="roles"> Author, copyright holder </small> <br><small>(vue library in lib, https://vuejs.org/; see BACKERS for full list of Patreon backers)</small>
@@ -137,13 +141,11 @@
 <li>Kent Russell <br><small class="roles"> Author, maintainer </small> <br><small>(R interface)</small>
 </li>
 </ul>
-<div>
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/timelyportfolio/vueR"><img src="https://travis-ci.org/timelyportfolio/vuer.svg?branch=master" alt="Travis-CI Build Status"></a></li>
 <li><a href="https://cran.r-project.org/package=vueR"><img src="http://www.r-pkg.org/badges/version/vueR" alt="CRAN_Status_Badge"></a></li>
 </ul>
-</div>
 </div>
 
 </div>

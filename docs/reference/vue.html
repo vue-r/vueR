@@ -23,9 +23,10 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -56,6 +57,9 @@
 <li>
   <a href="../articles/index.html">Articles</a>
 </li>
+<li>
+  <a href="../news/index.html">News</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -85,7 +89,7 @@
 since it requires specification of the HTML tags/elements separately.</p>
     
 
-    <pre><span class='fu'>vue</span>(<span class='kw'>app</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>vue</span>(<span class='kw'>app</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>minified</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
@@ -119,73 +123,73 @@ non-minified (<code>minified=FALSE</code>) Vue.js</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Not run: ------------------------------------</span>
-<span class='co'># library(vueR)</span>
-<span class='co'># library(htmltools)</span>
-<span class='co'># </span>
-<span class='co'># # recreate Hello Vue! example</span>
-<span class='co'># browsable(</span>
-<span class='co'>#   tagList(</span>
-<span class='co'>#     tags$div(id="app", "{{message}}"),</span>
-<span class='co'>#     vue(</span>
-<span class='co'>#       list(</span>
-<span class='co'>#         el = "#app",</span>
-<span class='co'>#         data = list(</span>
-<span class='co'>#           message = "Hello Vue!"</span>
-<span class='co'>#         )</span>
-<span class='co'>#       )</span>
-<span class='co'>#     )</span>
-<span class='co'>#   )</span>
-<span class='co'># )</span>
-<span class='co'># </span>
-<span class='co'># # app2 from Vue.js introduction</span>
-<span class='co'># browsable(</span>
-<span class='co'>#   tagList(</span>
-<span class='co'>#     tags$div(id="app-2",</span>
-<span class='co'>#       tags$span(</span>
-<span class='co'>#         "v-bind:title" = "message",</span>
-<span class='co'>#         "Hover your mouse over me for a few seconds to see my dynamically bound title!"</span>
-<span class='co'>#       )</span>
-<span class='co'>#     ),</span>
-<span class='co'>#     vue(</span>
-<span class='co'>#       list(</span>
-<span class='co'>#         el = "#app-2",</span>
-<span class='co'>#         data = list(</span>
-<span class='co'>#           message =  htmlwidgets::JS(</span>
-<span class='co'>#             "'You loaded this page on ' + new Date()"</span>
-<span class='co'>#           )</span>
-<span class='co'>#         )</span>
-<span class='co'>#       )</span>
-<span class='co'>#     )</span>
-<span class='co'>#   )</span>
-<span class='co'># )</span>
-<span class='co'># </span>
-<span class='co'># # app3 from Vue.js introduction</span>
-<span class='co'># #  with a setInterval to toggle seen true and false</span>
-<span class='co'># browsable(</span>
-<span class='co'>#   tagList(</span>
-<span class='co'>#     tags$div(id="app-3",</span>
-<span class='co'>#       tags$p("v-if"="seen", "Now you see me")</span>
-<span class='co'>#     ),</span>
-<span class='co'>#     htmlwidgets::onRender(</span>
-<span class='co'>#       vue(</span>
-<span class='co'>#         list(</span>
-<span class='co'>#           el = '#app-3',</span>
-<span class='co'>#           data = list(</span>
-<span class='co'>#             seen = TRUE</span>
-<span class='co'>#           )</span>
-<span class='co'>#         )</span>
-<span class='co'>#       ),</span>
-<span class='co'>#       "</span>
-<span class='co'># function(el,x){</span>
-<span class='co'>#   var that = this;</span>
-<span class='co'>#   setInterval(function(){that.instance.seen=!that.instance.seen},1000);</span>
-<span class='co'># }</span>
-<span class='co'>#       "</span>
-<span class='co'>#     )</span>
-<span class='co'>#   )</span>
-<span class='co'># )</span>
-<span class='co'>## ---------------------------------------------</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+  <span class='fu'>library</span>(<span class='no'>vueR</span>)
+  <span class='fu'>library</span>(<span class='no'>htmltools</span>)
+
+  <span class='co'># recreate Hello Vue! example</span>
+  <span class='fu'>browsable</span>(
+    <span class='fu'>tagList</span>(
+      <span class='no'>tags</span>$<span class='fu'>div</span>(<span class='kw'>id</span><span class='kw'>=</span><span class='st'>"app"</span>, <span class='st'>"{{message}}"</span>),
+      <span class='fu'>vue</span>(
+        <span class='fu'>list</span>(
+          <span class='kw'>el</span> <span class='kw'>=</span> <span class='st'>"#app"</span>,
+          <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'>list</span>(
+            <span class='kw'>message</span> <span class='kw'>=</span> <span class='st'>"Hello Vue!"</span>
+          )
+        )
+      )
+    )
+  )
+
+  <span class='co'># app2 from Vue.js introduction</span>
+  <span class='fu'>browsable</span>(
+    <span class='fu'>tagList</span>(
+      <span class='no'>tags</span>$<span class='fu'>div</span>(<span class='kw'>id</span><span class='kw'>=</span><span class='st'>"app-2"</span>,
+        <span class='no'>tags</span>$<span class='fu'>span</span>(
+          <span class='st'>"v-bind:title"</span> <span class='kw'>=</span> <span class='st'>"message"</span>,
+          <span class='st'>"Hover your mouse over me for a few seconds to see my dynamically bound title!"</span>
+        )
+      ),
+      <span class='fu'>vue</span>(
+        <span class='fu'>list</span>(
+          <span class='kw'>el</span> <span class='kw'>=</span> <span class='st'>"#app-2"</span>,
+          <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'>list</span>(
+            <span class='kw'>message</span> <span class='kw'>=</span>  <span class='kw'>htmlwidgets</span><span class='kw'>::</span><span class='fu'>JS</span>(
+              <span class='st'>"'You loaded this page on ' + new Date()"</span>
+            )
+          )
+        )
+      )
+    )
+  )
+
+  <span class='co'># app3 from Vue.js introduction</span>
+  <span class='co'>#  with a setInterval to toggle seen true and false</span>
+  <span class='fu'>browsable</span>(
+    <span class='fu'>tagList</span>(
+      <span class='no'>tags</span>$<span class='fu'>div</span>(<span class='kw'>id</span><span class='kw'>=</span><span class='st'>"app-3"</span>,
+        <span class='no'>tags</span>$<span class='fu'>p</span>(<span class='st'>"v-if"</span><span class='kw'>=</span><span class='st'>"seen"</span>, <span class='st'>"Now you see me"</span>)
+      ),
+      <span class='kw'>htmlwidgets</span><span class='kw'>::</span><span class='fu'>onRender</span>(
+        <span class='fu'>vue</span>(
+          <span class='fu'>list</span>(
+            <span class='kw'>el</span> <span class='kw'>=</span> <span class='st'>'#app-3'</span>,
+            <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'>list</span>(
+              <span class='kw'>seen</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+            )
+          )
+        ),
+        <span class='st'>"
+  function(el,x){
+    var that = this;
+    setInterval(function(){that.instance.seen=!that.instance.seen},1000);
+  }
+        "</span>
+      )
+    )
+  )
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

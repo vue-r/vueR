@@ -5,4 +5,4 @@
 ^README-.*\.png$
 ^\.travis\.yml$
 ^CONDUCT\.md$
-^\docs$
+docs
