@@ -1,8 +1,8 @@
 Package: vueR
 Type: Package
 Title: 'Vuejs' Helpers and 'Htmlwidget'
-Version: 0.2.0
-Date: 2017-04-27
+Version: 0.3.0
+Date: 2017-07-13
 Authors@R: c(
       person(
         "Evan","You"
@@ -29,6 +29,7 @@ Imports:
 Suggests:
     knitr,
     rmarkdown,
-    shiny
+    shiny,
+    testthat
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
