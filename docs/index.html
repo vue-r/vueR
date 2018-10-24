@@ -90,45 +90,45 @@
 <h3 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h3>
 <p>We’ll start with a recreation of the simple “Hello World” example from the Vue.js documentation. This is the hard way.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(htmltools)
-<span class="kw">library</span>(vueR)
-
-<span class="kw">browsable</span>(
-  <span class="kw">attachDependencies</span>(
-    <span class="kw">tagList</span>(
-      tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">id=</span><span class="st">"app"</span>,<span class="st">"{{message}}"</span>),
-      tags<span class="op">$</span><span class="kw">script</span>(
-      <span class="st">"</span>
-<span class="st">      var app = new Vue({</span>
-<span class="st">        el: '#app',</span>
-<span class="st">        data: {</span>
-<span class="st">          message: 'Hello Vue!'</span>
-<span class="st">        }</span>
-<span class="st">      });</span>
-<span class="st">      "</span>
-      )
-    ),
-    <span class="kw"><a href="reference/html_dependency_vue.html">html_dependency_vue</a></span>()
-  )
-)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(htmltools)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(vueR)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">browsable</span>(</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="kw">attachDependencies</span>(</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="kw">tagList</span>(</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">      tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">id=</span><span class="st">"app"</span>,<span class="st">"{{message}}"</span>),</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">      tags<span class="op">$</span><span class="kw">script</span>(</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">      <span class="st">"</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">      var app = new Vue({</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="st">        el: '#app',</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="st">        data: {</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="st">          message: 'Hello Vue!'</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="st">        }</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="st">      });</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="st">      "</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">      )</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">    ),</a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">    <span class="kw"><a href="reference/html_dependency_vue.html">html_dependency_vue</a></span>()</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">  )</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">)</a></code></pre></div>
 <p><code>vueR</code> gives us an <code>htmlwidget</code> that can ease the code burden from above.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(vueR)
-<span class="kw">library</span>(htmltools)
-
-<span class="co"># recreate Hello Vue! example</span>
-<span class="kw">browsable</span>(
-  <span class="kw">tagList</span>(
-    tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">id=</span><span class="st">"app"</span>, <span class="st">"{{message}}"</span>),
-    <span class="kw"><a href="reference/vue.html">vue</a></span>(
-      <span class="kw">list</span>(
-        <span class="dt">el =</span> <span class="st">"#app"</span>,
-        <span class="dt">data =</span> <span class="kw">list</span>(
-          <span class="dt">message =</span> <span class="st">"Hello Vue!"</span>
-        )
-      )
-    )
-  )
-)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(vueR)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">library</span>(htmltools)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># recreate Hello Vue! example</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">browsable</span>(</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="kw">tagList</span>(</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">    tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">id=</span><span class="st">"app"</span>, <span class="st">"{{message}}"</span>),</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="kw"><a href="reference/vue.html">vue</a></span>(</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">      <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">        <span class="dt">el =</span> <span class="st">"#app"</span>,</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">        <span class="dt">data =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">          <span class="dt">message =</span> <span class="st">"Hello Vue!"</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">        )</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">      )</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">    )</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">  )</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">)</a></code></pre></div>
 </div>
 <div id="code-of-conduct" class="section level3">
 <h3 class="hasAnchor">
