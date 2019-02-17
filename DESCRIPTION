@@ -25,7 +25,7 @@ License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
     htmltools,
-    htmlwidgets (>= 0.6.0)    
+    htmlwidgets (>= 0.6.0)
 Suggests:
     knitr,
     rmarkdown,
