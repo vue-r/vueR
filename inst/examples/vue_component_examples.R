@@ -37,8 +37,8 @@ browsable(
 #### Element examples ####################################
 element <- htmlDependency(
   name = "element",
-  version = "1.0.3",
-  src = c(href="https://unpkg.com/element-ui/lib"),
+  version = "1.4.13",
+  src = c(href="https://unpkg.com/element-ui@1.4.13/lib/"),
   script = "index.js",
   stylesheet = "theme-default/index.css"
 )
@@ -262,7 +262,7 @@ function(el, x) {
       var nodes = d3.select(el).selectAll('g.node');
       debugger;
       nodes.each(function(d) {
-        if(checkedNodes.indexOf(d.name) >= 0){
+        if(checkedNodes.indexOf(d.data.name) > -1){
           d3.select(this).select('circle').style('fill', 'gray');
         } else {
           d3.select(this).select('circle').style('fill', 'rgb(255,255,255)');
