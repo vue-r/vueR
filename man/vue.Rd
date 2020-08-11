@@ -4,8 +4,13 @@
 \alias{vue}
 \title{'Vue.js' 'htmlwidget'}
 \usage{
-vue(app = list(), width = NULL, height = NULL, elementId = NULL,
-  minified = TRUE)
+vue(
+  app = list(),
+  width = NULL,
+  height = NULL,
+  elementId = NULL,
+  minified = TRUE
+)
 }
 \arguments{
 \item{app}{\code{list} with \code{el} and \code{data} and other pieces

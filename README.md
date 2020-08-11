@@ -2,14 +2,14 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 [![Travis-CI Build
-Status](https://travis-ci.org/timelyportfolio/vuer.svg?branch=master)](https://travis-ci.org/timelyportfolio/vueR)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/vueR)](https://cran.r-project.org/package=vueR)
+Status](https://travis-ci.org/vue-r/vuer.svg?branch=master)](https://travis-ci.org/vue-r/vueR)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/vueR)](https://cran.r-project.org/package=vueR)
 
 [Vue.js](https://vuejs.org) is a quiet, very popular JavaScript
 framework with an impressive set of features, a solid community, and MIT
 license. Don’t tell anybody, but I think I might even like it better
 than React. With all this, Vue deserves its own set of helpers for `R`,
 just like [`d3r`](https://github.com/timelyportfolio/d3r) and
-[`reactR`](https://github.com/timelyportfolio/reactR).
+[`reactR`](https://github.com/react-r/reactR).
 
 `vueR` provides these helpers with its dependency function
 `html_dependency_vue` and ?htmlwidget?.
@@ -19,7 +19,7 @@ just like [`d3r`](https://github.com/timelyportfolio/d3r) and
 `vueR` aims to achieve CRAN status, but for now, it only exists on
 Github.
 
-    devtools::install_github("timelyportfolio/vueR")
+    devtools::install_github("vue-r/vueR")
 
 ### Example
 
