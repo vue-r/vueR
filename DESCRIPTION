@@ -1,8 +1,8 @@
 Package: vueR
 Type: Package
 Title: 'Vuejs' Helpers and 'Htmlwidget'
-Version: 0.5.1
-Date: 2018-10-23
+Version: 0.5.2
+Date: 2020-08-11
 Authors@R: c(
       person(
         "Evan","You"
