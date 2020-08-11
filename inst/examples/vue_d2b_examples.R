@@ -17,11 +17,18 @@ hier_json <- hier_dat %>%
   rename(size = vSize) %>%
   d3_nest(value_cols = c("size", "color"))
 
+
+d2b_dep <- htmltools::htmlDependency(
+  name = "d2b",
+  version = "0.0.24",
+  src = c(href = "https://unpkg.com/d2b@0.0.24/build/"),
+  script = "d2b.min.js"
+)
+
 browsable(tagList(
   html_dependency_vue(),
   d3r::d3_dep_v4(),
-  tags$script(src = "https://unpkg.com/d3"),
-  tags$script(src = "https://rawgit.com/d2bjs/d2b/master/build/d2b.js"),
+  d2b_dep,
   tags$div(
     id = "app",
     style = "height:400px",
