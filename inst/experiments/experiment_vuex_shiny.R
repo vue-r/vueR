@@ -3,6 +3,7 @@
 
 library(htmltools)
 library(shiny)
+library(vueR)
 
 vuex <- tags$script(src="https://unpkg.com/vuex@2.5.0/dist/vuex.js")
 
@@ -40,17 +41,18 @@ const store = new Vuex.Store({
 
 const app = new Vue({
   el: '#app',
+  store: store,
   computed: {
     count () {
-	    return store.state.count
+	    return this.$store.state.count
     }
   },
   methods: {
     increment () {
-      store.commit('increment')
+      this.$store.commit('increment')
     },
     decrement () {
-    	store.commit('decrement')
+    	this.$store.commit('decrement')
     }
   }
 })
@@ -59,17 +61,17 @@ $(document).on('shiny:sessioninitialized', function() {
   // increment from Shiny custom message
   //   chose 'increment' but does not have to match the store mutation name
   Shiny.addCustomMessageHandler('increment', function(msg) {
-    store.commit('increment')
+    app.$store.commit('increment')
   });
   Shiny.addCustomMessageHandler('decrement', function(msg) {
-    store.commit('decrement')
+    app.$store.commit('decrement')
   });
 })
 "
   ))
 )
 
-browsable(ui)
+#browsable(ui)
 
 server <- function(input, output, session) {
   observeEvent(input$btnIncrement, {

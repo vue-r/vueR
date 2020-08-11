@@ -19,8 +19,8 @@ Authors@R: c(
 Maintainer: Kent Russell <kent.russell@timelyportfolio.com>
 Description: Make it easy to use 'vue' in R with helper
               dependency functions and examples.
-URL: https://github.com/timelyportfolio/vueR
-BugReports: https://github.com/timelyportfolio/vueR/issues
+URL: https://github.com/vue-r/vueR
+BugReports: https://github.com/vue-r/vueR/issues
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
