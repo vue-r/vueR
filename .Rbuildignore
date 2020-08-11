@@ -6,3 +6,4 @@
 ^\.travis\.yml$
 ^CONDUCT\.md$
 docs
+^tests$
