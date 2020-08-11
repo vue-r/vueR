@@ -71,6 +71,18 @@ browsable(
 )
 ```
 
+### Build/Update
+
+`vueR` is now part of a Github organization, and hopefully will be
+backed with interest by more than one (me) developer. For most `vueR`
+users, this section will not apply, but I would like to document the
+build/update step for new versions of `Vue`. In
+[`getvue.R`](https://github.com/vue-r/vueR/blob/master/build/getvue.R),
+I created some functions for rapid download and deployment of new `Vue`
+versions. Running all of the code in `getvue.R` should update local
+minified and development versions of Vue and also update the version
+references in `vueR`.
+
 ### Code of Conduct
 
 I would love for you to participate and help with `vueR`, but please
