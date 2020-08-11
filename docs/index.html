@@ -100,21 +100,19 @@
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">vueR</span>)
 
 <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/browsable.html">browsable</a></span>(
-  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/htmlDependencies.html">attachDependencies</a></span>(
-    <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
-      <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(<span class="kw">id</span><span class="kw">=</span><span class="st">"app"</span>,<span class="st">"{{message}}"</span>),
-      <span class="no">tags</span>$<span class="fu">script</span>(
-      <span class="st">"
-      var app = new Vue({
-        el: '#app',
-        data: {
-          message: 'Hello Vue!'
-        }
-      });
-      "</span>
-      )
-    ),
-    <span class="fu"><a href="reference/html_dependency_vue.html">html_dependency_vue</a></span>()
+  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
+    <span class="fu"><a href="reference/html_dependency_vue.html">html_dependency_vue</a></span>(), <span class="co"># local and minimized by default</span>
+    <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(<span class="kw">id</span><span class="kw">=</span><span class="st">"app"</span>,<span class="st">"{{message}}"</span>),
+    <span class="no">tags</span>$<span class="fu">script</span>(
+    <span class="st">"
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      }
+    });
+    "</span>
+    )
   )
 )</pre></div>
 <p><code>vueR</code> gives us an <code>htmlwidget</code> that can ease the code burden from above.</p>

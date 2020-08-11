@@ -36,21 +36,19 @@ library(htmltools)
 library(vueR)
 
 browsable(
-  attachDependencies(
-    tagList(
-      tags$div(id="app","{{message}}"),
-      tags$script(
-      "
-      var app = new Vue({
-        el: '#app',
-        data: {
-          message: 'Hello Vue!'
-        }
-      });
-      "
-      )
-    ),
-    html_dependency_vue()
+  tagList(
+    html_dependency_vue(), # local and minimized by default
+    tags$div(id="app","{{message}}"),
+    tags$script(
+    "
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      }
+    });
+    "
+    )
   )
 )
 ```
