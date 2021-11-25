@@ -43,7 +43,7 @@ html_dependency_vue <- function(offline=TRUE, minified=TRUE){
 
   if(!offline) {
     hd$src <- list(href=sprintf(
-      "https://unpkg.com/vue/dist",
+      "https://unpkg.com/vue@%s/dist/",
       vue_version()
     ))
   }

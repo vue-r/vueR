@@ -1,3 +1,7 @@
+# vueR 0.5.3
+
+* update vue to 2.6.14
+
 # vueR 0.5.2
 
 * update vue to 2.6.11

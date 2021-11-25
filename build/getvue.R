@@ -1,5 +1,5 @@
-# use the very nice rgithub
-# devtools::install_github("cscheid/rgithub")
+# use the very nice rgithub; still works but abandoned
+# remotes::install_github("cscheid/rgithub")
 
 get_vue_latest <- function(){
   gsub(
