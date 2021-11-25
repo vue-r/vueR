@@ -8,11 +8,13 @@
 
 <title>'Vue.js' 'htmlwidget' — vue • vueR</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
@@ -36,12 +38,11 @@
 
 
 
-<meta property="og:title" content="'Vue.js' 'htmlwidget' — vue" />
 
+<meta property="og:title" content="'Vue.js' 'htmlwidget' — vue" />
 <meta property="og:description" content="Use 'Vue.js' with the convenience and flexibility of 'htmlwidgets'.
 vue is a little different from other 'htmlwidgets' though
 since it requires specification of the HTML tags/elements separately." />
-
 
 
 
@@ -73,7 +74,7 @@ since it requires specification of the HTML tags/elements separately." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">vueR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.3</span>
       </span>
     </div>
 
@@ -81,7 +82,7 @@ since it requires specification of the HTML tags/elements separately." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -104,11 +105,10 @@ since it requires specification of the HTML tags/elements separately." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/vue-r/vueR/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -131,21 +131,19 @@ since it requires specification of the HTML tags/elements separately." />
     </div>
 
     <div class="ref-description">
-    
     <p>Use 'Vue.js' with the convenience and flexibility of 'htmlwidgets'.
 <code>vue</code> is a little different from other 'htmlwidgets' though
 since it requires specification of the HTML tags/elements separately.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>vue</span>(
-  <span class='kw'>app</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(),
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>minified</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-)</pre>
-    
+    <pre class="usage"><span class='fu'>vue</span><span class='op'>(</span>
+  app <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  width <span class='op'>=</span> <span class='cn'>NULL</span>,
+  height <span class='op'>=</span> <span class='cn'>NULL</span>,
+  elementId <span class='op'>=</span> <span class='cn'>NULL</span>,
+  minified <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -170,80 +168,80 @@ element</p></td>
 non-minified (<code>minified=FALSE</code>) Vue.js</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>vue htmlwidget</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>vueR</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>htmltools</span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/vue-r/vueR'>vueR</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rstudio/htmltools'>htmltools</a></span><span class='op'>)</span>
 
 <span class='co'># recreate Hello Vue! example</span>
-<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/browsable.html'>browsable</a></span>(
-  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
-    <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span>(<span class='kw'>id</span><span class='kw'>=</span><span class='st'>"app"</span>, <span class='st'>"{{message}}"</span>),
-    <span class='fu'>vue</span>(
-      <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-        <span class='kw'>el</span> <span class='kw'>=</span> <span class='st'>"#app"</span>,
-        <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-          <span class='kw'>message</span> <span class='kw'>=</span> <span class='st'>"Hello Vue!"</span>
-        )
-      )
-    )
-  )
-)
+<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/browsable.html'>browsable</a></span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tagList.html'>tagList</a></span><span class='op'>(</span>
+    <span class='va'>tags</span><span class='op'>$</span><span class='fu'>div</span><span class='op'>(</span>id<span class='op'>=</span><span class='st'>"app"</span>, <span class='st'>"{{message}}"</span><span class='op'>)</span>,
+    <span class='fu'>vue</span><span class='op'>(</span>
+      <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+        el <span class='op'>=</span> <span class='st'>"#app"</span>,
+        data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+          message <span class='op'>=</span> <span class='st'>"Hello Vue!"</span>
+        <span class='op'>)</span>
+      <span class='op'>)</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='op'>)</span>
 
 <span class='co'># app2 from Vue.js introduction</span>
-<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/browsable.html'>browsable</a></span>(
-  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
-    <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span>(<span class='kw'>id</span><span class='kw'>=</span><span class='st'>"app-2"</span>,
-      <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>span</a></span>(
-        <span class='st'>"v-bind:title"</span> <span class='kw'>=</span> <span class='st'>"message"</span>,
+<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/browsable.html'>browsable</a></span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tagList.html'>tagList</a></span><span class='op'>(</span>
+    <span class='va'>tags</span><span class='op'>$</span><span class='fu'>div</span><span class='op'>(</span>id<span class='op'>=</span><span class='st'>"app-2"</span>,
+      <span class='va'>tags</span><span class='op'>$</span><span class='fu'>span</span><span class='op'>(</span>
+        <span class='st'>"v-bind:title"</span> <span class='op'>=</span> <span class='st'>"message"</span>,
         <span class='st'>"Hover your mouse over me for a few seconds to see my dynamically bound title!"</span>
-      )
-    ),
-    <span class='fu'>vue</span>(
-      <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-        <span class='kw'>el</span> <span class='kw'>=</span> <span class='st'>"#app-2"</span>,
-        <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-          <span class='kw'>message</span> <span class='kw'>=</span>  <span class='kw pkg'>htmlwidgets</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/htmlwidgets/man/JS.html'>JS</a></span>(
+      <span class='op'>)</span>
+    <span class='op'>)</span>,
+    <span class='fu'>vue</span><span class='op'>(</span>
+      <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+        el <span class='op'>=</span> <span class='st'>"#app-2"</span>,
+        data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+          message <span class='op'>=</span>  <span class='fu'>htmlwidgets</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/htmlwidgets/man/JS.html'>JS</a></span><span class='op'>(</span>
             <span class='st'>"'You loaded this page on ' + new Date()"</span>
-          )
-        )
-      )
-    )
-  )
-)
+          <span class='op'>)</span>
+        <span class='op'>)</span>
+      <span class='op'>)</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='op'>)</span>
 
 <span class='co'># app3 from Vue.js introduction</span>
 <span class='co'>#  with a setInterval to toggle seen true and false</span>
-<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/browsable.html'>browsable</a></span>(
-  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
-    <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span>(<span class='kw'>id</span><span class='kw'>=</span><span class='st'>"app-3"</span>,
-      <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span>(<span class='st'>"v-if"</span><span class='kw'>=</span><span class='st'>"seen"</span>, <span class='st'>"Now you see me"</span>)
-    ),
-    <span class='kw pkg'>htmlwidgets</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/htmlwidgets/man/onRender.html'>onRender</a></span>(
-      <span class='fu'>vue</span>(
-        <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-          <span class='kw'>el</span> <span class='kw'>=</span> <span class='st'>'#app-3'</span>,
-          <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-            <span class='kw'>seen</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-          )
-        )
-      ),
+<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/browsable.html'>browsable</a></span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tagList.html'>tagList</a></span><span class='op'>(</span>
+    <span class='va'>tags</span><span class='op'>$</span><span class='fu'>div</span><span class='op'>(</span>id<span class='op'>=</span><span class='st'>"app-3"</span>,
+      <span class='va'>tags</span><span class='op'>$</span><span class='fu'>p</span><span class='op'>(</span><span class='st'>"v-if"</span><span class='op'>=</span><span class='st'>"seen"</span>, <span class='st'>"Now you see me"</span><span class='op'>)</span>
+    <span class='op'>)</span>,
+    <span class='fu'>htmlwidgets</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/htmlwidgets/man/onRender.html'>onRender</a></span><span class='op'>(</span>
+      <span class='fu'>vue</span><span class='op'>(</span>
+        <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+          el <span class='op'>=</span> <span class='st'>'#app-3'</span>,
+          data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+            seen <span class='op'>=</span> <span class='cn'>TRUE</span>
+          <span class='op'>)</span>
+        <span class='op'>)</span>
+      <span class='op'>)</span>,
       <span class='st'>"
 function(el,x){
   var that = this;
   setInterval(function(){that.instance.seen=!that.instance.seen},1000);
 }
       "</span>
-    )
-  )
-)
-}</div></pre>
+    <span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -259,7 +257,7 @@ function(el,x){
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

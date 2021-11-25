@@ -8,11 +8,13 @@
 
 <title>Dependencies for Vue — html_dependency_vue • vueR</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
@@ -36,10 +38,9 @@
 
 
 
+
 <meta property="og:title" content="Dependencies for Vue — html_dependency_vue" />
-
 <meta property="og:description" content="Dependencies for Vue" />
-
 
 
 
@@ -71,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">vueR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.3</span>
       </span>
     </div>
 
@@ -79,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -102,11 +103,10 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/vue-r/vueR/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -129,13 +129,11 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Dependencies for Vue</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>html_dependency_vue</span>(<span class='kw'>offline</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>minified</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>html_dependency_vue</span><span class='op'>(</span>offline <span class='op'>=</span> <span class='cn'>TRUE</span>, minified <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -150,20 +148,19 @@ then the dependencies use cdn as its <code>src</code>.</p></td>
 <code>minified = FALSE</code> for debugging or working with Vue devtools.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code><a href='https://rdrr.io/pkg/htmltools/man/htmlDependency.html'>htmlDependency</a></code></p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>vueR</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>htmltools</span>)
+    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/vue-r/vueR'>vueR</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rstudio/htmltools'>htmltools</a></span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/htmlDependencies.html'>attachDependencies</a></span>(
-  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
-    <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span>(<span class='kw'>id</span><span class='kw'>=</span><span class='st'>"app"</span>,<span class='st'>"{{message}}"</span>),
-    <span class='no'>tags</span>$<span class='fu'>script</span>(
+<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/htmlDependencies.html'>attachDependencies</a></span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tagList.html'>tagList</a></span><span class='op'>(</span>
+    <span class='va'>tags</span><span class='op'>$</span><span class='fu'>div</span><span class='op'>(</span>id<span class='op'>=</span><span class='st'>"app"</span>,<span class='st'>"{{message}}"</span><span class='op'>)</span>,
+    <span class='va'>tags</span><span class='op'>$</span><span class='fu'>script</span><span class='op'>(</span>
     <span class='st'>"
     var app = new Vue({
       el: '#app',
@@ -172,10 +169,11 @@ then the dependencies use cdn as its <code>src</code>.</p></td>
       }
     });
     "</span>
-    )
-  ),
-  <span class='fu'>html_dependency_vue</span>()
-)</div><div class='output co'>#&gt; &lt;div id="app"&gt;{{message}}&lt;/div&gt;
+    <span class='op'>)</span>
+  <span class='op'>)</span>,
+  <span class='fu'>html_dependency_vue</span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; &lt;div id="app"&gt;{{message}}&lt;/div&gt;
 #&gt; &lt;script&gt;
 #&gt;     var app = new Vue({
 #&gt;       el: '#app',
@@ -199,7 +197,7 @@ then the dependencies use cdn as its <code>src</code>.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
