@@ -15,14 +15,15 @@ just like [`d3r`](https://github.com/timelyportfolio/d3r) and
 [`reactR`](https://github.com/react-r/reactR).
 
 `vueR` provides these helpers with its dependency function
-`html_dependency_vue` and ?htmlwidget?.
+`html_dependency_vue()` and `htmlwidget` helper `vue()`.
 
 ### Installation
 
-`vueR` aims to achieve CRAN status, but for now, it only exists on
-Github.
+    install.packages("vueR")
 
-    devtools::install_github("vue-r/vueR")
+or for the latest if different from CRAN
+
+    remotes::install_github("vue-r/vueR")
 
 ### Example
 
@@ -74,6 +75,10 @@ browsable(
 )
 ```
 
+Also, please check out additional
+[examples](https://github.com/vue-r/vueR/tree/master/inst/examples) and
+[experiments](https://github.com/vue-r/vueR/tree/master/inst/experiments).
+
 ### Build/Update
 
 `vueR` is now part of a Github organization, and hopefully will be
@@ -90,5 +95,5 @@ references in `vueR`.
 
 I would love for you to participate and help with `vueR`, but please
 note that this project is released with a [Contributor Code of
-Conduct](CONDUCT.md). By participating in this project you agree to
-abide by its terms.
+Conduct](https://github.com/vue-r/vueR/blob/master/CONDUCT.md). By
+participating in this project you agree to abide by its terms.

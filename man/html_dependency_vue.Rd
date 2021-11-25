@@ -20,6 +20,8 @@ then the dependencies use cdn as its \code{src}.}
 Dependencies for Vue
 }
 \examples{
+if(interactive()){
+
 library(vueR)
 library(htmltools)
 
@@ -39,4 +41,5 @@ attachDependencies(
   ),
   html_dependency_vue()
 )
+}
 }

@@ -10,6 +10,8 @@
 #' @export
 #'
 #' @examples
+#' if(interactive()){
+#'
 #' library(vueR)
 #' library(htmltools)
 #'
@@ -29,6 +31,7 @@
 #'   ),
 #'   html_dependency_vue()
 #' )
+#' }
 html_dependency_vue <- function(offline=TRUE, minified=TRUE){
   hd <- htmltools::htmlDependency(
     name = "vue",
