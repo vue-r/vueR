@@ -1,8 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- badges: start -->
 
-[![Travis-CI Build
-Status](https://travis-ci.org/vue-r/vuer.svg?branch=master)](https://travis-ci.org/vue-r/vueR)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/vueR)](https://cran.r-project.org/package=vueR)
+[![R-CMD-check](https://github.com/vue-r/vueR/workflows/R-CMD-check/badge.svg)](https://github.com/vue-r/vueR/actions)
+<!-- badges: end -->
 
 [Vue.js](https://vuejs.org) is a quiet, very popular JavaScript
 framework with an impressive set of features, a solid community, and MIT
