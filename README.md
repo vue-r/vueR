@@ -3,6 +3,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/vue-r/vueR/workflows/R-CMD-check/badge.svg)](https://github.com/vue-r/vueR/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/vueR)](https://CRAN.R-project.org/package=vueR)
 <!-- badges: end -->
 
 [Vue.js](https://vuejs.org) is a quiet, very popular JavaScript
