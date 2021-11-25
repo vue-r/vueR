@@ -3,7 +3,7 @@
 ^\build
 ^README\.Rmd$
 ^README-.*\.png$
-^\.travis\.yml$
 ^CONDUCT\.md$
 docs
 ^tests$
+^\.github$

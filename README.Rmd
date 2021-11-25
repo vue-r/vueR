@@ -12,7 +12,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Travis-CI Build Status](https://travis-ci.org/vue-r/vuer.svg?branch=master)](https://travis-ci.org/vue-r/vueR)[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/vueR)](https://cran.r-project.org/package=vueR)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/vue-r/vueR/workflows/R-CMD-check/badge.svg)](https://github.com/vue-r/vueR/actions)
+<!-- badges: end -->
 
 [Vue.js](https://vuejs.org) is a quiet, very popular JavaScript framework with an impressive set of features, a solid community, and MIT license.  Don't tell anybody, but I think I might even like it better than React.  With all this, Vue deserves its own set of helpers for `R`, just like [`d3r`](https://github.com/timelyportfolio/d3r) and [`reactR`](https://github.com/react-r/reactR).
 
