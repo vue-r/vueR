@@ -8,3 +8,5 @@ docs
 ^tests$
 ^\.github$
 ^cran-comments\.md$
+^CRAN-RELEASE$
+^LICENSE\.md$
