@@ -31,8 +31,9 @@ download.file(
 #  for use when creating dependencies
 cat(
   sprintf(
-    "#'@keywords internal\nvue_version <- function(){'%s'}\n",
-    get_vue_latest()
+    "#'@keywords internal\nvue_version <- function(){'%s'}\n#'@keywords internal\nvue3_version <- function(){'%s'}\n",
+    get_vue_latest(),
+    "3.2.26" #hard coded for now
   ),
   file = "./R/meta.R"
 )

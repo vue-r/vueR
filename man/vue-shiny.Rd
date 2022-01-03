@@ -4,11 +4,17 @@
 \alias{vue-shiny}
 \alias{vueOutput}
 \alias{renderVue}
+\alias{vue3Output}
+\alias{renderVue3}
 \title{Shiny bindings for vue}
 \usage{
 vueOutput(outputId, width = "100\%", height = "400px")
 
 renderVue(expr, env = parent.frame(), quoted = FALSE)
+
+vue3Output(outputId, width = "100\%", height = "400px")
+
+renderVue3(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
 \item{outputId}{output variable to read from}
@@ -27,4 +33,42 @@ is useful if you want to save an expression in a variable.}
 \description{
 Output and render functions for using vue within Shiny
 applications and interactive Rmd documents.
+
+Output and render functions for using 'vue 3' within Shiny
+applications and interactive Rmd documents.
+}
+\examples{
+if(interactive()) {
+
+  library(shiny)
+  library(vueR)
+
+  ui <- tagList(
+    tags$div(id="app-3",
+      tags$p("v-if"="seen", "Now you see me")
+    ),
+    vue3Output('vue1')
+  )
+
+  server <- function(input, output, session) {
+    output$vue1 <- renderVue3({
+      vue3(
+        list(
+          el = '#app-3',
+          data = htmlwidgets::JS("function() {return {seen: true}}"),
+          mounted = htmlwidgets::JS("function() {var that = this; setInterval(function(){that.seen=!that.seen},1000);}"),
+          watch = list(
+            seen = htmlwidgets::JS("function() {Shiny.setInputValue('seen',this.seen)}")
+          )
+        )
+      )
+    })
+
+    # show that Shiny input value is being updated
+    observeEvent(input$seen, {print(input$seen)})
+  }
+
+  shinyApp(ui, server)
+
+}
 }

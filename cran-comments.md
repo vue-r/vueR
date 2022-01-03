@@ -1,6 +1,6 @@
 ## Comments
 
-Second submission resolving license issue...
+Second submission resolving license issue by using CRAN template.
 
 ```
 Thanks, we see:
