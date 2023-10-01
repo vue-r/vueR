@@ -57,7 +57,12 @@ if(interactive()) {
           el = '#app-3',
           data = list(seen = TRUE),
           # data = htmlwidgets::JS("function() {return {seen: true}}"),
-          mounted = htmlwidgets::JS("function() {var that = this; setInterval(function(){that.seen=!that.seen},1000);}")
+          mounted = htmlwidgets::JS("
+            function() {
+              var that = this;
+              setInterval(function(){that.seen=!that.seen},1000);
+            }
+          ")
         )
       )
     )

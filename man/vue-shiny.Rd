@@ -55,8 +55,13 @@ if(interactive()) {
       vue3(
         list(
           el = '#app-3',
-          data = htmlwidgets::JS("function() {return {seen: true}}"),
-          mounted = htmlwidgets::JS("function() {var that = this; setInterval(function(){that.seen=!that.seen},1000);}"),
+          data = list(seen = TRUE),
+          mounted = htmlwidgets::JS("
+            function() {
+              var that = this;
+              setInterval(function(){that.seen=!that.seen},1000);
+            }
+          "),
           watch = list(
             seen = htmlwidgets::JS("function() {Shiny.setInputValue('seen',this.seen)}")
           )
