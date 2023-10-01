@@ -7,7 +7,7 @@ if(interactive()) {
   browsable(
     tagList(
       tags$div(id="app", "{{message}}"),
-      vue(
+      vue3(
         list(
           el = "#app",
           data = list(

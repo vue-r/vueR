@@ -1,3 +1,8 @@
+# vueR 0.6.0
+
+* add `vue3` set of functions with vue3 @ `3.3.4`; see [issue 10](https://github.com/vue-r/vueR/issues/10)
+* update vue2 to 2.7.14
+
 # vueR 0.5.3
 
 * update vue to 2.6.14
