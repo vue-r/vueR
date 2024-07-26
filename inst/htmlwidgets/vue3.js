@@ -30,7 +30,8 @@ HTMLWidgets.widget({
           x.data = function() {return dat};
         }
 
-        this.instance = Vue.createApp(x).mount(x.el);
+        this.instance = Vue.createApp(x);
+        this.instance.mount(x.el);
 
       },
 
